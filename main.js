@@ -1,29 +1,39 @@
-var app = new Vue({
+Vue.component('my-component',{
+  template: `
+  <div>
+    <p>My Template</p>
+    <input v-model="message"></input>
+    <my-another-component :val="message"></my-another-component>
+  </div>
+  `,
+  data:()=>{
+    return{
+      query: 'Yeah',
+      message: ''
+    }
+  }
+})
+
+Vue.component('my-another-component',{
+  template: `
+  <div>
+    <p>{{ val }}</p>
+    <ul>
+      <li v-for="item in list">{{ item }}</li>
+    </ul>
+  </div>
+  `,
+  data: ()=>{
+    return{
+      list: ['one','two','three','four','five']
+    }
+  },
+  props: ['val']
+})
+
+new Vue({
   el: '#app',
   data: {
-    message: 'Hello, Vue.js!',
-    list: ['사과','망고','딸기'],
-    show: false,
-    isFucked: false,
-    messageColor:'black',
-    bgcolor:'white',
-    radius: 50,
-  },
-  methods: {
-    handleClick: function(event) {
-      alert(event.target);
-      if(this.show == true) {
-        this.show = false;
-        this.isFucked = false;
-        this.bgcolor = 'white';
-        this.messageColor = 'black';
-      }
-      else {
-        this.show = true;
-        this.isFucked = true;
-        this.bgcolor = 'red';
-        this.messageColor = 'blue';
-      }
-    }
+    message: 'Hello, World!'
   }
 })
