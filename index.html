@@ -7,17 +7,8 @@
 </head>
 <body>
   <div id="app">
-    <p class="mess" v-bind:class="{ fuck: isFucked }" v-bind:style="{ color:messageColor, backgroundColor: bgcolor }">{{ message }}</p>
-    <input v-model="message"></input>
-    <ol>
-      <li v-for="fruit in list">{{ fruit }}</li>
-    </ol>
-    <button v-on:click="handleClick">Click!</button>
-    <p v-if="show">Now, You can see me</p>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink"/>
-    </svg>
-    <input type="range" min="0" max="100" v-model="radius">
+    {{ message }}
+    <my-component></my-component>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <script src="main.js"></script>
