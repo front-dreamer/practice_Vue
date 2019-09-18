@@ -28,7 +28,13 @@ Vue.component('my-another-component',{
       list: ['one','two','three','four','five']
     }
   },
-  props: ['val']
+  props: {
+    val: {
+      type: Number,
+      required: true,
+      default: 'none'
+    }
+  }
 })
 
 new Vue({
